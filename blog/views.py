@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 def index(request):
-  posts = Post.objects.filter(published_at__lte=timezone.now()).selected_related("author")
+  posts = Post.objects.filter(published_at__lte=timezone.now()).select_related("author")
   logger.debug("Got %d posts", len(posts))
   return render(request, "blog/index.html", {"posts": posts})
 
