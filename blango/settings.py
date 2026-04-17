@@ -50,6 +50,7 @@ class Dev(Configuration):
 
   INSTALLED_APPS = [
       'blog',
+      "debug_toolbar",
       'crispy_forms',
       'crispy_bootstrap5',
       'django.contrib.admin',
@@ -61,6 +62,7 @@ class Dev(Configuration):
   ]
 
   MIDDLEWARE = [
+      'debug_toolbar.middleware.DebugToolbarMiddleware',
       'django.middleware.security.SecurityMiddleware',
       'django.contrib.sessions.middleware.SessionMiddleware',
       'django.middleware.common.CommonMiddleware',
@@ -140,6 +142,8 @@ class Dev(Configuration):
   # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
   STATIC_URL = '/static/'
+
+  INTERNAL_IPS = ["192.168.10.92", "192.168.11.136", "192.168.10.31"]
 
   # Default primary key field type
   # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
