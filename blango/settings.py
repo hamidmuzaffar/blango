@@ -51,6 +51,7 @@ class Dev(Configuration):
   INSTALLED_APPS = [
       'blog',
       'blango_auth',
+      "rest_framework",
       "debug_toolbar",
       'crispy_forms',
       'crispy_bootstrap5',
