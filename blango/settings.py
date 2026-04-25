@@ -52,6 +52,7 @@ class Dev(Configuration):
       'blog',
       'blango_auth',
       "rest_framework",
+      "rest_framework.authtoken",
       "debug_toolbar",
       'crispy_forms',
       'crispy_bootstrap5',
@@ -194,6 +195,14 @@ class Dev(Configuration):
   EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
   ACCOUNT_ACTIVATION_DAYS = 7
+
+  REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+  }
 
 class Prod(Dev):
   DEBUG = False
